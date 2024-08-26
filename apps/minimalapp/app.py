@@ -9,6 +9,14 @@ def index():
     return "Hello, Flaskbook!"
 
 
+# Endpoint : URIと紐づけられた関数名または関数につけた名前
+@app.route("/hello/<name>",
+           methods=['GET', 'POST'],
+           endpoint="hello-endpoint",)
+def hello():
+    return "Hello, World!"
+
+
 # show_nameエンドポイントを作る
 @app.route("/name/<name>")
 def show_name(name):
