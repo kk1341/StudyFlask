@@ -76,6 +76,11 @@ def contact_complete():
 
         # メールを送る
 
+        # 問い合わせ完了エンドポイントへリダイレクトする
+        flash(
+            "問い合わせ内容はメールにて送信しました．問い合わせありがとうございます．"
+        )
+
         # contactエンドポイントへリダイレクトする
         return redirect(url_for("contact_complete"))
 
