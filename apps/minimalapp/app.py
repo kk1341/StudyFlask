@@ -8,12 +8,20 @@ from flask import (
     flash,
 )
 import logging
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
+app.debug = True
 # SECRET_KEYを追加
 app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
 # ログレベルを設定する
 app.logger.setLevel(logging.DEBUG)
+# リダイレクトを中断しないようにする
+# リダイレクトするとリクエストした値がflask-debugtoolbarで確認できなくなるため
+# デフォルトではTrue(リダイレクトを中断)になっている
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+# DEbugToolbarExtensionにアプリケーションをセットする
+toolbar = DebugToolbarExtension(app)
 
 
 # URLと実行する関数をマッピングする
