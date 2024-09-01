@@ -10,7 +10,7 @@ from flask import (
 
 app = Flask(__name__)
 # SECRET_KEYを追加
-app.config["SELECT_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
+app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
 
 
 # URLと実行する関数をマッピングする
@@ -68,7 +68,7 @@ def contact_complete():
             is_valid = False
 
         if not description:
-            flash("お問い合わせ内容は必必須です")
+            flash("お問い合わせ内容は必須です")
             is_valid = False
 
         if not is_valid:
