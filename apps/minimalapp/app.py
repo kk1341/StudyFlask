@@ -10,7 +10,7 @@ from flask import (
 
 app = Flask(__name__)
 # SECRET_KEYを追加
-app.config["SELECT_KEY"] = ""
+app.config["SELECT_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
 
 
 # URLと実行する関数をマッピングする
