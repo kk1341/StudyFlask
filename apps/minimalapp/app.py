@@ -8,6 +8,8 @@ from flask import (
     request,
     redirect,
     flash,
+    make_response,
+    session,
 )
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_mail import Mail, Message
@@ -63,7 +65,17 @@ def show_name(name):
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    # レスポンスオブジェクトを取得する
+    response = make_response(render_template("contact.html"))
+
+    # クッキーを設定する
+    response.set_cookie("flaskbook key", "flaskbook value")
+
+    # セッションを設定する
+    session["username"] = "fukuhara"
+
+    # レスポンスオブジェクトを返す
+    return response
 
 
 @app.route("/contact/complete", methods=["GET", "POST"])
