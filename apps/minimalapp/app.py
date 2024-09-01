@@ -7,10 +7,13 @@ from flask import (
     redirect,
     flash,
 )
+import logging
 
 app = Flask(__name__)
 # SECRET_KEYを追加
 app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
+# ログレベルを設定する
+app.logger.setLevel(logging.DEBUG)
 
 
 # URLと実行する関数をマッピングする
