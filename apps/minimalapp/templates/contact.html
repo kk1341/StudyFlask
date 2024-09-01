@@ -8,6 +8,7 @@
     <h2>問い合わせフォーム</h2>
 
     <!-- Flashメッセージを「問い合わせフォーム」画面に表示 -->
+    <!-- withステートメントでmessages変数の利用可能な範囲をwithステートメント内だけに限定 -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
